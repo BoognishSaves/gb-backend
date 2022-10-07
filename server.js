@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+require('./config/db.connection')
 const { PORT, MONGODB_URI } = process.env;
 const express = require("express");
 const app = express();
