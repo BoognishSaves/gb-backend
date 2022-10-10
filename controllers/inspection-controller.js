@@ -2,7 +2,7 @@
 
 const express = require('express')
 const router = express.Router()
-const {Inspections} = require('../models')
+const {Inspections} = require('../models/Inspections')
 
 ///////////////////////////////
 // ROUTES
