@@ -2,7 +2,7 @@
 
 const express = require('express')
 const router = express.Router()
-const {Inspections} = require('../models/Inspections')
+const Inspections = require('../models/Inspections')
 
 ///////////////////////////////
 // ROUTES
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 // Inspection CREATE ROUTE
-router.post("/", async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
     // create new inspection
     res.json(await Inspections.create(req.body));
@@ -42,7 +42,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Inspection UPDATE ROUTE
-router.put("/:id", async (req, res) => {
+router.put("/:id/update", async (req, res) => {
     try {
       // update inspection by ID
       res.json(
@@ -55,7 +55,7 @@ router.put("/:id", async (req, res) => {
   });
   
   // Inspection DELETE ROUTE
-  router.delete("/:id", async (req, res) => {
+  router.delete("/:id/delete", async (req, res) => {
     try {
       // delete people by ID
       res.json(await Inspections.findByIdAndRemove(req.params.id));
