@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 require('./config/db.connection')
-const { PORT } = process.env;
+const PORT = process.env.PORT || 4000
 const express = require("express");
 const app = express();
 const inspectionController = require('./controllers/inspection-controller')
