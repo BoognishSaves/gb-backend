@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 // Inspection CREATE ROUTE
-router.post("/create", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     // create new inspection
     res.json(await Inspections.create(req.body));
