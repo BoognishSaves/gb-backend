@@ -42,7 +42,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Inspection UPDATE ROUTE
-router.put("/:id/update", async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
       // update inspection by ID
       res.json(
@@ -55,7 +55,7 @@ router.put("/:id/update", async (req, res) => {
   });
   
   // Inspection DELETE ROUTE
-  router.delete("/:id/delete", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       // delete people by ID
       res.json(await Inspections.findByIdAndRemove(req.params.id));
