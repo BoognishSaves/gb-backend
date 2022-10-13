@@ -24,7 +24,7 @@ app.use('/inspections', inspectionController)
 
 	
 app.get("/", (req, res) => {
-	res.send("hello world");
+	res.send("Hello Garden Buddy");
 });
 
 
