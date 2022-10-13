@@ -46,17 +46,18 @@ router.get("/:id", async (req, res) => {
     // Comment UPDATE ROUTE
     router.put("/:id/comment", async (req, res) => {
         try {
-          const oldData= await Inspections.findByID(req.params.id);
-          const data = { comment: [...oldData.comments, req.body]}
-          console.log("hello")
+          const oldData= await Inspections.findById(req.params.id);
+          const data = { comment: [...oldData.comment, req.body]}
+          console.log(req.body)
           res.json(
-            await Inspections.findByIdAndUpdate(req.params.id, {$push: {comment:"test"}}, {new:true})
+            await Inspections.findByIdAndUpdate(req.params.id, {$push: {comment:req.body}}, {new:true})
           );
           
           
         } catch (error) {
           //send error
           res.status(400).json(error);
+          console.log(error)
         }
       });
     
