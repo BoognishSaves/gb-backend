@@ -14,7 +14,8 @@ const InspectionsSchema = new mongoose.Schema(
     { 
     location:{type:String, required:true},  
     plant: {type:String, required:true}, 
-    image: {type:String, required:true},  
+    image: {type:String, required:true},
+    info: {type:String, required:true},  
     comment: [commentSchema]
     
     },
