@@ -23,10 +23,13 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     // create new inspection
+    console.log(req.body)
     res.json(await Inspections.create(req.body));
+    
   } catch (error) {
     //send error
     res.status(400).json(error);
+    console.log(error)
   }
 });
 
