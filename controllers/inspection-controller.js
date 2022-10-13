@@ -39,8 +39,24 @@ router.get("/:id", async (req, res) => {
         //send error
         res.status(400).json(error);
       }
-});
-
+    });
+    // Comment UPDATE ROUTE
+    router.put("/:id/comment", async (req, res) => {
+        try {
+          const oldData= await Inspections.findByID(req.params.id);
+          const data = { comment: [...oldData.comments, req.body]}
+          console.log("hello")
+          res.json(
+            await Inspections.findByIdAndUpdate(req.params.id, {$push: {comment:"test"}}, {new:true})
+          );
+          
+          
+        } catch (error) {
+          //send error
+          res.status(400).json(error);
+        }
+      });
+    
 // Inspection UPDATE ROUTE
 router.put("/:id", async (req, res) => {
     try {
@@ -54,17 +70,6 @@ router.put("/:id", async (req, res) => {
     }
   });
 
-// Comment UPDATE ROUTE
-router.put("/:id/comment", async (req, res) => {
-    try {
-      res.json(
-        await Inspections.findByIdAndUpdate(req.params.id, req.body, {new:true})
-      );
-    } catch (error) {
-      //send error
-      res.status(400).json(error);
-    }
-  });
   
   // Inspection DELETE ROUTE
   router.delete("/:id", async (req, res) => {
