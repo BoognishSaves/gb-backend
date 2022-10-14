@@ -50,7 +50,7 @@ router.get("/:id", async (req, res) => {
           const data = { comment: [...oldData.comment, req.body]}
           console.log(req.body)
           res.json(
-            await Inspections.findByIdAndUpdate(req.params.id, {$push: {comment:req.body}}, {new:true})
+            await Inspections.findByIdAndUpdate(req.params.id, data, {new:true})
           );
           
           
