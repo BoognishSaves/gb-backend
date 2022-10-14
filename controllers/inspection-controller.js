@@ -48,7 +48,7 @@ router.get("/:id", async (req, res) => {
         try {
           const oldData= await Inspections.findById(req.params.id);
           const data = { comment: [...oldData.comment, req.body]}
-          console.log(req.body)
+          console.log(data, oldData)
           res.json(
             await Inspections.findByIdAndUpdate(req.params.id, data, {new:true})
           );
